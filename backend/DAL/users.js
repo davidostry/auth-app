@@ -1,4 +1,4 @@
-import { db } from '..DB/config.js';
+import { db } from '../DB/config.js'
 
 const users = db.collection("users");
 
