@@ -1,19 +1,34 @@
-import { db } from '../DB/config.js'
+import { ObjectId } from "mongodb";
+import { db } from "../DB/config.js";
 
 const users = db.collection("users");
 
 export async function createUser(userName, email, hash) {
+    const correctedEmail = email.toLowerCase();
 
-  const { insertedId } = await users.insertOne({ userName, email, hash })
-  return insertedId
+    const { insertedId } = await users.insertOne({
+        userName,
+        email: correctedEmail,
+        hash
+    });
+
+    return insertedId;
 }
 
-export async function findUser(email) {
-  const correctedEmail = email.toLowerCase();
-  const user = await users.findOne({ email: correctedEmail });
-  return user;
+export async function findUserByEmail(email) {
+    const correctedEmail = email.toLowerCase();
+
+    const user = await users.findOne({
+        email: correctedEmail
+    });
+
+    return user;
 }
 
-export async function getAll() {
-  return await users.find().toArray()
+export async function findUserById(id) {
+    const user = await users.findOne({
+        _id: new ObjectId(id)
+    });
+
+    return user;
 }
