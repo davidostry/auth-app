@@ -5,5 +5,5 @@ export async function createToken(id){
 }
 
 export async function verifyToken(token){
-    return jwt.verifyt(token, process.env.JWT_SECRET)
+    return jwt.verify(token, process.env.JWT_SECRET)
 }

@@ -37,3 +37,18 @@ export async function login(req, res) {
     }
 
 }
+
+export async function getDetails(req, res) {
+    try {
+        const {email} = req.body
+        const user = await findUser(email)
+        if (!user) res.status(404).json({message: "detailes user not found"});
+        res.json(user)
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "failed to regisrer" });
+
+    }
+
+}
