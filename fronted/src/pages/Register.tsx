@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { registerUser } from "../services/api";
+import "./Register.css"
 
 export default function Register() {
     const navigate = useNavigate();
@@ -34,7 +35,7 @@ export default function Register() {
     }
 
     return (
-        <div>
+        <div className="register">
             <h1>Register</h1>
 
             <form onSubmit={handleSubmit}>
@@ -83,7 +84,7 @@ export default function Register() {
 
             <p>
                 Already have an account?{" "}
-                <Link to="/login">Login</Link>
+                <Link className="link" to="/login">Login</Link>
             </p>
         </div>
     );

@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.register{
+    background-color: rgb(216, 64, 64);
+    color: whitesmoke;
+}
+.link{
+    color: #000;
+}

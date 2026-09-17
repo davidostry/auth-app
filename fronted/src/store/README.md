@@ -1,4 +1,44 @@
-## install
+# Auth app - fronted
 
-zustand
-reacr-router-dom
+
+## טכנולוגיות
+
+
+* React
+* TypeScript
+* Vite
+* React Router
+* Zustand
+
+
+
+## הרצה
+
+
+git clone
+cd frontend
+npm install
+npm run dev
+
+
+האפליקציה תיפתח בכתובת:
+
+
+http://localhost:5173
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,9 @@
+
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { loginUser } from "../services/api";
 import { useAuthStore } from "../store/authStore";
+import "./Login.css";
 
 export default function Login() {
     const navigate = useNavigate();
@@ -21,9 +23,13 @@ export default function Login() {
         setLoading(true);
 
         try {
+            // מוחק token ישן לפני התחברות חדשה
+            localStorage.removeItem("token");
+
             const data = await loginUser(email, password);
 
-            setToken(data);
+            // השרת מחזיר { token: "..." }
+            setToken(data.token);
 
             navigate("/profile");
         } catch (error) {
@@ -68,14 +74,15 @@ export default function Login() {
 
                 {error && <p>{error}</p>}
 
-                <button type="submit" disabled={loading}>
+                <button className="button" type="submit" disabled={loading}>
                     {loading ? "Logging in..." : "Login"}
                 </button>
             </form>
 
             <p>
                 Don't have an account?{" "}
-                <Link to="/register">Register</Link>
+                <br />
+                <Link className="link" to="/register">Register</Link>
             </p>
         </div>
     );

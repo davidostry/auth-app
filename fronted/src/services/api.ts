@@ -2,7 +2,7 @@
 const API_URL = "http://localhost:3001";
 
 export async function registerUser(
-    username: string,
+    userName: string,
     email: string,
     password: string
 ) {
@@ -12,7 +12,7 @@ export async function registerUser(
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            username,
+            userName,
             email,
             password,
         }),
@@ -62,7 +62,7 @@ export async function getDetails(token: string) {
     const data = await response.json();
 
     if (!response.ok) {
-        throw new Error(data.message || "Failed to get users");
+        throw new Error(data.message || "Failed to get user details");
     }
 
     return data;
