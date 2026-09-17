@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router";
 import { loginUser } from "../services/api";
 import { useAuthStore } from "../store/authStore";
 
@@ -38,7 +38,7 @@ export default function Login() {
     }
 
     return (
-        <div>
+        <div className="login">
             <h1>Login</h1>
 
             <form onSubmit={handleSubmit}>
