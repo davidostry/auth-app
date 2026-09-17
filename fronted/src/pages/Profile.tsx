@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { getDetails } from "../services/api";
 import { useAuthStore } from "../store/authStore";
+import './Profile.css'
 
 type User = {
     _id: string;
@@ -64,7 +65,7 @@ export default function Profile() {
     }
 
     return (
-        <div>
+        <div className="profile">
             <h1>Profile</h1>
 
             {error && (
@@ -73,15 +74,12 @@ export default function Profile() {
 
             {!error && user && (
                 <div>
-                    <p>
-                        <strong>Username:</strong> {user.userName}
-                    </p>
-
-                    <p> <strong>Email:</strong> {user.email} </p>
-                    <p> <strong>ID:</strong> {user._id} </p>
+                    <p className="text"> <strong>Username:</strong> {user.userName}</p>
+                    <p className="text"> <strong>Email:</strong> {user.email} </p>
+                    <p className="text"> <strong>ID:</strong> {user._id} </p>
                 </div>
             )}
-            <button onClick={handleLogout}>
+            <button className="button" onClick={handleLogout}>
                 Logout
 
             </button>
